@@ -242,6 +242,44 @@
       </div>
     </div>
 
+    <!-- Timeline -->
+    <div class="px2">
+      <h2 class="h2 mb0" id="timeline">Deep learning timeline</h2>
+    </div>
+
+    <div class="flex flex-wrap">
+      <div class="md-col-8 px2">
+        <p>The milestones below are not a complete history. They are the turning points worth knowing because they changed what deep models could represent, how they could be trained, what data they could use, or where they became useful.</p>
+
+        <ol class="timeline-list">
+          <li><time>1943</time><strong><a href="https://doi.org/10.1007/BF02478259">McCulloch-Pitts neuron</a></strong><span>A logical model of neurons shows how simple threshold units can compute logical functions.</span></li>
+          <li><time>1958</time><strong><a href="https://doi.org/10.1037/h0042519">The perceptron</a></strong><span>Rosenblatt introduces a trainable linear classifier and the first major neural-network learning story.</span></li>
+          <li><time>1986</time><strong><a href="https://www.nature.com/articles/323533a0">Backpropagation</a></strong><span>Rumelhart, Hinton, and Williams show how hidden layers can learn useful internal representations.</span></li>
+          <li><time>1997</time><strong><a href="https://direct.mit.edu/neco/article/9/8/1735/6109/Long-Short-Term-Memory">LSTM</a></strong><span>Gated recurrence gives sequence models a practical way to carry information over longer spans.</span></li>
+          <li><time>1998</time><strong><a href="https://yann.lecun.org/exdb/mnist/">MNIST</a> and <a href="https://doi.org/10.1109/5.726791">LeNet-5</a></strong><span>A clean handwritten-digit benchmark and a gradient-trained CNN make neural network progress easier to compare and reproduce.</span></li>
+          <li><time>2006</time><strong><a href="https://direct.mit.edu/neco/article/18/7/1527/7065/A-Fast-Learning-Algorithm-for-Deep-Belief-Nets">Deep belief networks</a></strong><span>Layerwise pretraining helps revive deep neural networks before modern data, GPUs, and initialization practice mature.</span></li>
+          <li><time>2009</time><strong><a href="https://image-net.org/static_files/papers/imagenet_cvpr09.pdf">ImageNet</a></strong><span>Large-scale labeled data turns visual recognition into a benchmark where deep models can reveal their advantage.</span></li>
+          <li><time>2012</time><strong><a href="https://papers.nips.cc/paper_files/paper/2012/hash/c399862d3b9d6b76c8436e924a68c45b-Abstract.html">AlexNet</a></strong><span>A GPU-trained CNN wins ImageNet by a large margin and makes deep learning the default path for vision.</span></li>
+          <li><time>2014</time><strong><a href="https://arxiv.org/abs/1406.2661">GANs</a> and <a href="https://arxiv.org/abs/1412.6980">Adam</a></strong><span>Adversarial generation opens a new modeling family, while Adam becomes a practical default optimizer.</span></li>
+          <li><time>2015</time><strong><a href="https://arxiv.org/abs/1502.03167">Batch Normalization</a> and <a href="https://arxiv.org/abs/1512.03385">ResNet</a></strong><span>Normalization and residual connections make very deep networks easier to train.</span></li>
+          <li><time>2017</time><strong><a href="https://arxiv.org/abs/1706.03762">Transformer</a></strong><span>Attention replaces recurrence as the dominant sequence modeling primitive.</span></li>
+          <li><time>2018</time><strong><a href="https://arxiv.org/abs/1810.04805">BERT</a></strong><span>Pretrained transformers become reusable language representation models.</span></li>
+          <li><time>2020</time><strong><a href="https://arxiv.org/abs/2005.14165">GPT-3</a>, <a href="https://arxiv.org/abs/2001.08361">scaling laws</a>, and <a href="https://arxiv.org/abs/2006.11239">DDPM</a></strong><span>Scale changes language modeling behavior, and diffusion models become a serious generative framework.</span></li>
+          <li><time>2021</time><strong><a href="https://arxiv.org/abs/2103.00020">CLIP</a> and <a href="https://arxiv.org/abs/2104.14294">DINO</a></strong><span>Self-supervised and language-supervised visual representations become central to retrieval and multimodal systems.</span></li>
+          <li><time>2022</time><strong><a href="https://arxiv.org/abs/2112.10752">Latent Diffusion</a> and <a href="https://openai.com/index/chatgpt/">ChatGPT</a></strong><span>Generative models move from research artifacts to widely used creative and conversational systems.</span></li>
+          <li><time>2023</time><strong><a href="https://arxiv.org/abs/2304.02643">Segment Anything</a></strong><span>Promptable foundation models become concrete in computer vision, not only in language.</span></li>
+          <li><time>2024</time><strong><a href="https://arxiv.org/abs/2412.19437">DeepSeek-V3</a></strong><span>A large mixture-of-experts model makes training efficiency, inference cost, and open technical reports part of the frontier-model conversation.</span></li>
+          <li><time>2025</time><strong><a href="https://arxiv.org/abs/2501.12948">DeepSeek-R1 launch</a></strong><span>The January 2025 reasoning-model release shows how reinforcement learning and efficient open-weight releases can shift the economics and competition around frontier AI.</span></li>
+        </ol>
+      </div>
+
+      <div class="md-col-4 px2">
+        <blockquote class="h3 bold bl ml0 pl2 mt3 red">
+          <p>Progress came from better objectives, more data, more compute, and architectures with the right bias.</p>
+        </blockquote>
+      </div>
+    </div>
+
     <div class="px2">
       <h2 class="h2 mb0">Subject guides</h2>
     </div>
@@ -615,6 +653,7 @@
             <tr><td>Generative models</td><td><a href="https://arxiv.org/abs/1312.6114">VAE</a>, <a href="https://arxiv.org/abs/1406.2661">GAN</a>, <a href="https://arxiv.org/abs/2006.11239">DDPM</a>, <a href="https://arxiv.org/abs/2112.10752">Latent Diffusion</a>.</td></tr>
             <tr><td>Retrieval</td><td><a href="https://arxiv.org/abs/2004.04906">DPR</a>, <a href="https://arxiv.org/abs/2005.11401">RAG</a>.</td></tr>
             <tr><td>Alignment</td><td><a href="https://arxiv.org/abs/2203.02155">InstructGPT</a>.</td></tr>
+            <tr><td>Open reasoning models</td><td><a href="https://arxiv.org/abs/2412.19437">DeepSeek-V3</a>, <a href="https://arxiv.org/abs/2501.12948">DeepSeek-R1</a>.</td></tr>
           </tbody>
         </table>
       </div>

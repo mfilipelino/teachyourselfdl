@@ -431,6 +431,46 @@ blockquote p {
   border-color: rgba(116, 18, 15, 0.5);
 }
 
+.timeline-list {
+  margin-top: 1rem;
+  padding-left: 0;
+  border-left: 3px solid rgba(36, 51, 64, 0.35);
+  list-style: none;
+}
+
+.timeline-list li {
+  position: relative;
+  padding: 0 0 1.15rem 1.25rem;
+}
+
+.timeline-list li::before {
+  position: absolute;
+  top: 0.25rem;
+  left: -0.47rem;
+  width: 0.75rem;
+  height: 0.75rem;
+  border: 2px solid #15202b;
+  background: #fff;
+  content: "";
+}
+
+.timeline-list time {
+  display: block;
+  color: #74120f;
+  font-weight: 700;
+}
+
+.timeline-list strong {
+  display: block;
+  margin-top: 0.08rem;
+}
+
+.timeline-list span {
+  display: block;
+  margin-top: 0.2rem;
+  color: #4f5f6f;
+}
+
 .project-list {
   margin-top: 1rem;
   padding-left: 1.5rem;
