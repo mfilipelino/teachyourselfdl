@@ -226,6 +226,36 @@ td {
   font-size: 0.95rem;
 }
 
+.intro-card {
+  display: grid;
+  gap: 1rem;
+  margin-top: 2rem;
+  padding: 1rem;
+  border: 3px solid #15202b;
+  background: #fff;
+}
+
+.intro-card-copy {
+  max-width: 42rem;
+}
+
+.intro-label {
+  margin: 0 0 0.35rem;
+  color: #74120f;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.intro-card .figure-card {
+  margin-top: 0;
+}
+
+.intro-diagram img {
+  background: #f8f8f5;
+}
+
 .figure-card {
   margin: 1rem 0 0;
 }
@@ -238,10 +268,6 @@ td {
 
 .whiteboard-figure {
   max-width: 64rem;
-}
-
-.whiteboard-figure img {
-  background: #f8f8f5;
 }
 
 .figure-card figcaption {
