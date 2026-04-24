@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 620" role="img" aria-labelledby="title desc">
+  <title id="title">Problem-first deep learning curriculum map</title>
+  <desc id="desc">A diagram linking representation, optimization, data, architecture, systems, and evaluation.</desc>
+  <rect width="960" height="620" fill="#ffffff"/>
+  <rect x="48" y="48" width="864" height="524" fill="#ffffff" stroke="#15202b" stroke-width="6"/>
+  <g fill="none" stroke="#15202b" stroke-width="5" stroke-linecap="round">
+    <path d="M480 178 232 270 304 454 656 454 728 270Z"/>
+    <path d="M480 178V454"/>
+    <path d="M232 270H728"/>
+    <path d="M304 454 480 178 656 454"/>
+  </g>
+  <g font-family="-apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif" text-anchor="middle">
+    <circle cx="480" cy="178" r="54" fill="#74120f"/>
+    <text x="480" y="171" fill="#ffffff" font-size="22" font-weight="700">problem</text>
+    <text x="480" y="197" fill="#ffffff" font-size="22" font-weight="700">objective</text>
+
+    <circle cx="232" cy="270" r="52" fill="#3377bb"/>
+    <text x="232" y="264" fill="#ffffff" font-size="20" font-weight="700">data</text>
+    <text x="232" y="289" fill="#ffffff" font-size="20" font-weight="700">distribution</text>
+
+    <circle cx="728" cy="270" r="52" fill="#3377bb"/>
+    <text x="728" y="264" fill="#ffffff" font-size="20" font-weight="700">inductive</text>
+    <text x="728" y="289" fill="#ffffff" font-size="20" font-weight="700">bias</text>
+
+    <circle cx="304" cy="454" r="52" fill="#15202b"/>
+    <text x="304" y="448" fill="#ffffff" font-size="20" font-weight="700">training</text>
+    <text x="304" y="473" fill="#ffffff" font-size="20" font-weight="700">dynamics</text>
+
+    <circle cx="656" cy="454" r="52" fill="#15202b"/>
+    <text x="656" y="448" fill="#ffffff" font-size="20" font-weight="700">evaluation</text>
+    <text x="656" y="473" fill="#ffffff" font-size="20" font-weight="700">system</text>
+
+    <circle cx="480" cy="454" r="52" fill="#74120f"/>
+    <text x="480" y="448" fill="#ffffff" font-size="20" font-weight="700">learned</text>
+    <text x="480" y="473" fill="#ffffff" font-size="20" font-weight="700">representation</text>
+  </g>
+  <g font-family="-apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif" fill="#15202b">
+    <text x="86" y="108" font-size="28" font-weight="700">Teach Yourself Deep Learning</text>
+    <text x="86" y="144" font-size="18">Representation -> optimization -> data -> architecture -> systems -> evaluation</text>
+  </g>
+</svg>

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Teach Yourself Deep Learning">
+  <rect width="64" height="64" fill="#ffffff"/>
+  <circle cx="16" cy="18" r="5" fill="#74120f"/>
+  <circle cx="48" cy="18" r="5" fill="#3377bb"/>
+  <circle cx="32" cy="34" r="5" fill="#15202b"/>
+  <circle cx="16" cy="50" r="5" fill="#3377bb"/>
+  <circle cx="48" cy="50" r="5" fill="#74120f"/>
+  <path d="M20.5 20.5 27.5 31M43.5 20.5 36.5 31M27.5 37 20.5 47.5M36.5 37 43.5 47.5M21 50H43" fill="none" stroke="#15202b" stroke-width="3" stroke-linecap="round"/>
+</svg>

@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Teach Yourself Deep Learning</title>
+  <meta name="description" content="All the resources you need to give yourself a world-class deep learning education.">
+  <meta property="og:title" content="Teach Yourself Deep Learning">
+  <meta property="og:description" content="A compact, opinionated curriculum for learning deep learning from foundations to systems.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!--
+    Layout note:
+    This page intentionally follows the compact TeachYourselfCS shape:
+    short introduction, TL;DR table, explanatory essays, subject guides,
+    and a small FAQ. The CSS re-creates the utility classes locally so the
+    GitHub Pages build is static and dependency-free.
+  -->
+  <main class="max-width-4 mx-auto py1 md-py4">
+    <!-- Introduction -->
+    <div class="px2">
+      <h1 class="h1 pb1 bb">Teach Yourself Deep Learning</h1>
+
+      <div class="max-width-3">
+        <p class="my3 bold red">A compact curriculum for learning the durable structure behind deep learning: math, optimization, representation, architectures, training systems, and evaluation.</p>
+
+        <p>If you are a software engineer, data scientist, researcher, or technical operator trying to learn deep learning seriously, you do not need another list of hundreds of links. You need answers to these questions:</p>
+
+        <ul>
+          <li><strong>Which foundations</strong> should you learn, and why?</li>
+          <li>What is the <strong>best main resource</strong> for each foundation?</li>
+          <li>What should you build so the knowledge becomes operational?</li>
+        </ul>
+
+        <p>This guide is an attempt to answer those questions in the same spirit as TeachYourselfCS: one strong path, a small number of excellent resources, and short reasons for each recommendation.</p>
+
+        <h2 class="h2">Core philosophy</h2>
+        <p>Deep learning is not mainly about memorizing architectures. It is about understanding what is being optimized, what a model can represent, which data distribution it sees, what inductive bias the architecture imposes, what failure modes the training loop creates, and how to evaluate whether the model actually learned.</p>
+
+        <h2 class="h2">TL;DR:</h2>
+        <p>Study the twelve subjects below in roughly the presented order. Use the main resource as the spine, build at least one project for each major cluster, and revisit the topics as your work becomes more specialized.</p>
+      </div>
+    </div>
+
+    <!-- TL;DR table -->
+    <div class="px2 py3">
+      <table id="tldr-table" class="table-light">
+        <thead>
+          <tr>
+            <th>Subject</th>
+            <th>Why&nbsp;study?</th>
+            <th>Main resource</th>
+            <th>Practice</th>
+          </tr>
+        </thead>
+        <tbody class="h5">
+          <tr>
+            <td><strong><a href="#programming">Programming</a></strong></td>
+            <td>You need to implement training loops, inspect tensors, debug shapes, and read real model code.</td>
+            <td><em><a href="https://d2l.ai/">Dive into Deep Learning</a></em></td>
+            <td>Implement every model you read about.</td>
+          </tr>
+          <tr>
+            <td><strong><a href="#math">Mathematical Foundations</a></strong></td>
+            <td>Deep learning is applied linear algebra, calculus, probability, numerical optimization, and information theory.</td>
+            <td><em><a href="https://mml-book.github.io/">Mathematics for Machine Learning</a></em></td>
+            <td>Derive gradients and work through numerical examples.</td>
+          </tr>
+          <tr>
+            <td><strong><a href="#classical-ml">Classical Machine Learning</a></strong></td>
+            <td>Bias, variance, regularization, validation, and likelihood still govern neural models.</td>
+            <td><em><a href="https://www.statlearning.com/">An Introduction to Statistical Learning</a></em></td>
+            <td>Build baselines before neural models.</td>
+          </tr>
+          <tr>
+            <td><strong><a href="#neural-networks">Neural Networks</a></strong></td>
+            <td>Backpropagation, initialization, normalization, and training dynamics are the core mechanism.</td>
+            <td><em><a href="https://udlbook.github.io/udlbook/">Understanding Deep Learning</a></em></td>
+            <td>Train small networks and inspect gradients.</td>
+          </tr>
+          <tr>
+            <td><strong><a href="#optimization">Optimization</a></strong></td>
+            <td>Most real deep learning work is making training actually work.</td>
+            <td><em><a href="https://www.deeplearningbook.org/">Deep Learning</a></em></td>
+            <td>Compare SGD, momentum, Adam, schedules, and regularization.</td>
+          </tr>
+          <tr>
+            <td><strong><a href="#vision">Computer Vision</a></strong></td>
+            <td>Vision makes convolutions, invariance, augmentation, contrastive learning, and embeddings concrete.</td>
+            <td><em><a href="https://szeliski.org/Book/">Computer Vision: Algorithms and Applications</a></em></td>
+            <td>Train a CNN and an embedding search system.</td>
+          </tr>
+          <tr>
+            <td><strong><a href="#nlp-transformers">NLP and Transformers</a></strong></td>
+            <td>Transformers dominate language, vision-language, coding, agents, and many sequence problems.</td>
+            <td><em><a href="https://web.stanford.edu/~jurafsky/slp3/">Speech and Language Processing</a></em></td>
+            <td>Fine-tune and evaluate a small transformer.</td>
+          </tr>
+          <tr>
+            <td><strong><a href="#generative-models">Generative Models</a></strong></td>
+            <td>Modern deep learning is increasingly generative: LLMs, diffusion models, VAEs, and multimodal generation.</td>
+            <td><em><a href="https://www.manning.com/books/deep-learning-with-python-third-edition">Deep Learning with Python, 3rd ed.</a></em></td>
+            <td>Build one autoregressive model and one diffusion toy model.</td>
+          </tr>
+          <tr>
+            <td><strong><a href="#representation-learning">Representation Learning</a></strong></td>
+            <td>Embeddings are learned coordinate systems for meaning, similarity, retrieval, and decision-making.</td>
+            <td><em>Understanding Deep Learning</em> plus core papers</td>
+            <td>Evaluate embeddings with retrieval, clustering, and drift checks.</td>
+          </tr>
+          <tr>
+            <td><strong><a href="#systems">Deep Learning Systems</a></strong></td>
+            <td>Training in a notebook is not the same as building a reliable learning system.</td>
+            <td><em><a href="https://www.oreilly.com/library/view/designing-machine-learning/9781098107956/">Designing Machine Learning Systems</a></em></td>
+            <td>Build reproducible data, training, serving, and monitoring pipelines.</td>
+          </tr>
+          <tr>
+            <td><strong><a href="#evaluation">Evaluation and Failure Modes</a></strong></td>
+            <td>Bad evaluation is the fastest way to fool yourself.</td>
+            <td><em><a href="https://www.oreilly.com/library/view/reliable-machine-learning/9781098106218/">Reliable Machine Learning</a></em></td>
+            <td>Create leakage, robustness, calibration, and product-metric checks.</td>
+          </tr>
+          <tr>
+            <td><strong><a href="#research-papers">Research Papers</a></strong></td>
+            <td>Books teach foundations. Papers teach the frontier and the real shape of progress.</td>
+            <td>About 25 essential papers</td>
+            <td>Reproduce small versions of key results.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Short path -->
+    <div class="px2">
+      <h2 class="h2 mb0" id="too-much">Still too much?</h2>
+    </div>
+
+    <div class="flex flex-wrap">
+      <div class="md-col-8 px2">
+        <p>If the full curriculum feels too large, start with three resources: <em>Dive into Deep Learning</em>, <em>Understanding Deep Learning</em>, and <em>Designing Machine Learning Systems</em>. Pair them with one serious project: build an image or text embedding search system with a real evaluation harness. That path gives you implementation fluency, model understanding, and systems instincts.</p>
+      </div>
+    </div>
+
+    <!-- Motivation -->
+    <div class="px2">
+      <h2 class="h2 mb0" id="why">Why learn deep learning?</h2>
+    </div>
+
+    <div class="flex flex-wrap">
+      <div class="md-col-6 px2">
+        <p>There are two ways to learn deep learning. One is model-first: CNN, RNN, Transformer, GAN, Diffusion, LLM. That teaches history and vocabulary, but it often leaves people unable to diagnose training failures or design reliable evaluations.</p>
+
+        <p>The better path is problem-first: representation, optimization, data, architecture, training dynamics, evaluation, and systems. That is closer to how deep learning work actually succeeds or fails.</p>
+      </div>
+
+      <div class="md-col-6 px2">
+        <figure class="figure-card">
+          <img src="assets/curriculum-map.svg" alt="A compact map linking representation, optimization, data, architecture, systems, and evaluation.">
+          <figcaption>Problem-first deep learning: learn the machinery that makes architectures work.</figcaption>
+        </figure>
+      </div>
+
+      <div class="md-col-8 px2">
+        <p class="mt0">A model can improve a benchmark and still fail the product. A training run can converge while learning the wrong shortcut. An embedding can look useful in a demo and still collapse under distribution shift. The point of this curriculum is to build the judgment to notice those problems early.</p>
+      </div>
+    </div>
+
+    <div class="px2">
+      <h2 class="h2 mb0">Subject guides</h2>
+    </div>
+
+    <!-- Subject: Programming -->
+    <div class="max-width-3 px2">
+      <h3 class="h3 mb0" id="programming">Programming for Deep Learning</h3>
+    </div>
+
+    <div class="flex flex-wrap">
+      <div class="md-col-8 px2">
+        <p>Before theory matters, you need to be able to implement training loops, inspect tensors, debug shapes, read model code, and reproduce papers. Deep learning programming is not just calling a library; it is understanding how data, tensors, modules, losses, optimizers, and metrics move through a system.</p>
+
+        <p>Our standard recommendation is <em><a href="https://d2l.ai/">Dive into Deep Learning</a></em> by Aston Zhang, Zachary Lipton, Mu Li, and Alex Smola. It combines math, executable code, and clear explanations, and it is broad enough to be useful as a first serious book.</p>
+
+        <p>Do the exercises. Reading is not enough. Rewrite the examples, break them, change the data, change the model, and inspect what happens.</p>
+      </div>
+
+      <div class="md-col-4 px2">
+        <aside class="resource-card">
+          <p class="resource-label">First book</p>
+          <h4>Dive into Deep Learning</h4>
+          <p>Code, math, and discussion in one place.</p>
+        </aside>
+      </div>
+    </div>
+
+    <!-- Subject: Math -->
+    <div class="max-width-3 px2">
+      <h3 class="h3 mb0" id="math">Mathematical Foundations</h3>
+    </div>
+
+    <div class="flex flex-wrap">
+      <div class="md-col-8 px2">
+        <p>Deep learning is applied linear algebra, calculus, probability, numerical optimization, and information theory. Without the math, the field becomes cargo cult: people remember techniques but not why they work or when they fail.</p>
+
+        <p>Use <em><a href="https://mml-book.github.io/">Mathematics for Machine Learning</a></em> by Deisenroth, Faisal, and Ong before going deep into theory-heavy deep learning books.</p>
+
+        <table class="table-light compact-table">
+          <thead>
+            <tr>
+              <th>Area</th>
+              <th>Why it matters</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Linear algebra</td><td>Tensors, embeddings, projections, attention.</td></tr>
+            <tr><td>Calculus</td><td>Gradients, Jacobians, backpropagation.</td></tr>
+            <tr><td>Probability</td><td>Uncertainty, likelihood, generative models.</td></tr>
+            <tr><td>Optimization</td><td>SGD, Adam, convergence, loss landscapes.</td></tr>
+            <tr><td>Information theory</td><td>Entropy, KL divergence, VAEs, diffusion intuition.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="md-col-4 px2">
+        <blockquote class="h3 bold bl ml0 pl2 mt3 red">
+          <p>If you cannot reason about gradients, you are debugging by folklore.</p>
+        </blockquote>
+      </div>
+    </div>
+
+    <!-- Subject: Classical ML -->
+    <div class="max-width-3 px2">
+      <h3 class="h3 mb0" id="classical-ml">Classical Machine Learning</h3>
+    </div>
+
+    <div class="flex flex-wrap">
+      <div class="md-col-8 px2">
+        <p>Deep learning did not replace machine learning. It sits on top of it. If you do not understand bias and variance, overfitting, regularization, cross-validation, likelihood, and baselines, your deep learning understanding will be shallow.</p>
+
+        <p>Our suggested resource is <em><a href="https://www.statlearning.com/">An Introduction to Statistical Learning</a></em> by James, Witten, Hastie, Tibshirani, and Taylor. If you want more math afterward, read <em><a href="https://hastie.su.domains/ElemStatLearn/">The Elements of Statistical Learning</a></em> by Hastie, Tibshirani, and Friedman.</p>
+
+        <p>Use classical models as baselines. If a simple model wins, believe the evidence and inspect the task before adding neural complexity.</p>
+      </div>
+
+      <div class="md-col-4 px2">
+        <aside class="resource-card secondary">
+          <p class="resource-label">Baseline discipline</p>
+          <h4>ISL first, ESL later</h4>
+          <p>Learn validation and regularization before chasing architecture.</p>
+        </aside>
+      </div>
+    </div>
+
+    <!-- Subject: Neural Networks -->
+    <div class="max-width-3 px2">
+      <h3 class="h3 mb0" id="neural-networks">Neural Networks and Backpropagation</h3>
+    </div>
+
+    <div class="flex flex-wrap">
+      <div class="md-col-8 px2">
+        <p>This is the core mechanism. You should understand how a network computes, how gradients flow, why initialization matters, why normalization helps, and why training fails.</p>
+
+        <p>Use <em><a href="https://udlbook.github.io/udlbook/">Understanding Deep Learning</a></em> by Simon J. D. Prince as a modern bridge between theory and practice.</p>
+
+        <p>Keep these questions active while you study: why do deep networks train at all? Why do gradients vanish or explode? Why does overparameterization help? What does normalization actually stabilize? Why does architecture matter?</p>
+      </div>
+
+      <div class="md-col-4 px2">
+        <aside class="question-card">
+          <h4>Key questions</h4>
+          <ul>
+            <li>Where do gradients go?</li>
+            <li>What does the loss reward?</li>
+            <li>What failure would fool the metric?</li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+
+    <!-- Subject: Optimization -->
+    <div class="max-width-3 px2">
+      <h3 class="h3 mb0" id="optimization">Optimization for Deep Learning</h3>
+    </div>
+
+    <div class="flex flex-wrap">
+      <div class="md-col-8 px2">
+        <p>Most real deep learning work is not &ldquo;choose a model.&rdquo; It is making training work. That means understanding initialization, loss scaling, batch size, normalization, regularization, optimizer behavior, schedules, data order, and numerical stability.</p>
+
+        <p><em><a href="https://www.deeplearningbook.org/">Deep Learning</a></em> by Goodfellow, Bengio, and Courville is the classic reference. Do not start here as your first book unless you already have the math maturity.</p>
+
+        <p>Read selectively: chapter 6 on feedforward networks, chapter 7 on regularization, chapter 8 on optimization, chapter 9 on CNNs, chapter 10 on sequence modeling, then chapter 12 onward for advanced topics.</p>
+      </div>
+
+      <div class="md-col-4 px2">
+        <aside class="resource-card">
+          <p class="resource-label">Classic reference</p>
+          <h4>Deep Learning</h4>
+          <p>Use it as a reference, not as your first exposure.</p>
+        </aside>
+      </div>
+    </div>
+
+    <!-- Subject: Vision -->
+    <div class="max-width-3 px2">
+      <h3 class="h3 mb0" id="vision">Computer Vision</h3>
+    </div>
+
+    <div class="flex flex-wrap">
+      <div class="md-col-8 px2">
+        <p>Vision is where many deep learning ideas become concrete: convolutions, invariances, augmentation, embeddings, contrastive learning, segmentation, detection, diffusion, and multimodal models.</p>
+
+        <p>Use Richard Szeliski&rsquo;s <em><a href="https://szeliski.org/Book/">Computer Vision: Algorithms and Applications</a></em> as the broad reference. Then study papers and implementations for ResNet, Vision Transformer, CLIP, DINO, Segment Anything, and diffusion models.</p>
+
+        <p>If your work involves products, images, clustering, or visual search, make embeddings, metric learning, nearest-neighbor retrieval, and visual similarity first-class topics.</p>
+      </div>
+
+      <div class="md-col-4 px2">
+        <div class="tag-list" aria-label="Vision topics">
+          <span>embeddings</span>
+          <span>metric learning</span>
+          <span>retrieval</span>
+          <span>clustering</span>
+          <span>contrastive learning</span>
+          <span>self-supervision</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Subject: NLP -->
+    <div class="max-width-3 px2">
+      <h3 class="h3 mb0" id="nlp-transformers">Natural Language Processing and Transformers</h3>
+    </div>
+
+    <div class="flex flex-wrap">
+      <div class="md-col-8 px2">
+        <p>Transformers are now the dominant architecture for language, vision-language, coding models, agents, and many sequence problems. Learn the machinery underneath the hype: tokenization, embeddings, attention, pretraining, fine-tuning, instruction tuning, retrieval, and evaluation.</p>
+
+        <p>Use <em><a href="https://web.stanford.edu/~jurafsky/slp3/">Speech and Language Processing</a></em> by Jurafsky and Martin as the foundation. Pair it with <em><a href="https://www.oreilly.com/library/view/natural-language-processing/9781098103231/">Natural Language Processing with Transformers</a></em> by Tunstall, von Werra, and Wolf for practical transformer work.</p>
+      </div>
+
+      <div class="md-col-4 px2">
+        <aside class="question-card">
+          <h4>Core topics</h4>
+          <ul>
+            <li>Tokenization</li>
+            <li>Attention</li>
+            <li>Pretraining</li>
+            <li>Fine-tuning</li>
+            <li>RAG and evaluation</li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+
+    <!-- Subject: Generative Models -->
+    <div class="max-width-3 px2">
+      <h3 class="h3 mb0" id="generative-models">Generative Models</h3>
+    </div>
+
+    <div class="flex flex-wrap">
+      <div class="md-col-8 px2">
+        <p>Modern deep learning is increasingly generative: LLMs, diffusion models, VAEs, autoregressive models, and multimodal generation. The point is not to memorize families; it is to understand objectives, latent variables, likelihoods, sampling, and evaluation.</p>
+
+        <p>Use <em><a href="https://www.manning.com/books/deep-learning-with-python-third-edition">Deep Learning with Python, Third Edition</a></em> by Francois Chollet and Matthew Watson as a practical modern companion. It covers current generative AI while staying implementation-oriented.</p>
+
+        <table class="table-light compact-table">
+          <thead>
+            <tr>
+              <th>Model family</th>
+              <th>Learn because</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Autoregressive models</td><td>LLMs and next-token prediction.</td></tr>
+            <tr><td>VAEs</td><td>Latent variable modeling.</td></tr>
+            <tr><td>GANs</td><td>Adversarial training history.</td></tr>
+            <tr><td>Diffusion models</td><td>Image generation and denoising objectives.</td></tr>
+            <tr><td>Flow models</td><td>Exact likelihood and invertible networks.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="md-col-4 px2">
+        <blockquote class="h3 bold bl ml0 pl2 mt3 red">
+          <p>Generative models are objectives before they are demos.</p>
+        </blockquote>
+      </div>
+    </div>
+
+    <!-- Subject: Representation -->
+    <div class="max-width-3 px2">
+      <h3 class="h3 mb0" id="representation-learning">Representation Learning</h3>
+    </div>
+
+    <div class="flex flex-wrap">
+      <div class="md-col-8 px2">
+        <p>This is the missing section in many deep learning curricula. Deep learning is mostly representation learning. Embeddings are not just vectors; they are learned coordinate systems for meaning, similarity, retrieval, clustering, and downstream decisions.</p>
+
+        <p>Use <em>Understanding Deep Learning</em>, <em>Dive into Deep Learning</em>, and papers such as SimCLR, MoCo, CLIP, DINO, and BERT. Focus on what makes an embedding useful, what similarity means, when contrastive learning works, why self-supervised models transfer, and how representations fail.</p>
+
+        <p>For applied product work, include metric learning, hard negatives, visual similarity, product clustering, nearest-neighbor retrieval, embedding drift, and multimodal embeddings.</p>
+      </div>
+
+      <div class="md-col-4 px2">
+        <aside class="resource-card secondary">
+          <p class="resource-label">First-class topic</p>
+          <h4>Embeddings</h4>
+          <p>Evaluate with retrieval quality, cluster purity, drift, and operational cost.</p>
+        </aside>
+      </div>
+    </div>
+
+    <!-- Subject: Systems -->
+    <div class="max-width-3 px2">
+      <h3 class="h3 mb0" id="systems">Deep Learning Systems</h3>
+    </div>
+
+    <div class="flex flex-wrap">
+      <div class="md-col-8 px2">
+        <p>Training a model in a notebook is not the same as building a reliable deep learning system. Real systems require data pipelines, validation, experiment tracking, distributed training, serving, monitoring, feedback loops, evaluation pipelines, drift checks, and reproducibility.</p>
+
+        <p>Use Chip Huyen&rsquo;s <em><a href="https://www.oreilly.com/library/view/designing-machine-learning/9781098107956/">Designing Machine Learning Systems</a></em>. It connects modeling choices to engineering reality.</p>
+      </div>
+
+      <div class="md-col-4 px2">
+        <div class="tag-list systems" aria-label="Systems topics">
+          <span>data validation</span>
+          <span>tracking</span>
+          <span>serving</span>
+          <span>monitoring</span>
+          <span>drift</span>
+          <span>reproducibility</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Subject: Evaluation -->
+    <div class="max-width-3 px2">
+      <h3 class="h3 mb0" id="evaluation">Evaluation and Failure Modes</h3>
+    </div>
+
+    <div class="flex flex-wrap">
+      <div class="md-col-8 px2">
+        <p>Bad evaluation is the fastest way to fool yourself. A model can improve a benchmark and still fail the product. This should be a major section of any deep learning curriculum, not an appendix.</p>
+
+        <p>Use <em><a href="https://www.oreilly.com/library/view/reliable-machine-learning/9781098106218/">Reliable Machine Learning</a></em>, <em>Designing Machine Learning Systems</em>, and papers on dataset shift, calibration, leakage, and robustness.</p>
+
+        <p>Ask concrete questions: What exactly is the model supposed to do? What is the unit of evaluation? What is leakage? What distribution are we testing on? What are false positive and false negative costs? What does &ldquo;good enough&rdquo; mean operationally?</p>
+      </div>
+
+      <div class="md-col-4 px2">
+        <aside class="question-card">
+          <h4>Evaluation checklist</h4>
+          <ul>
+            <li>Unit of evaluation</li>
+            <li>Leakage checks</li>
+            <li>Distribution split</li>
+            <li>Error costs</li>
+            <li>Operational threshold</li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+
+    <!-- Subject: Papers -->
+    <div class="max-width-3 px2">
+      <h3 class="h3 mb0" id="research-papers">Research Papers</h3>
+    </div>
+
+    <div class="flex flex-wrap">
+      <div class="md-col-8 px2">
+        <p>Books teach foundations. Papers teach the frontier and the real shape of progress. The site should not list 200 papers; it should choose a small essential set and teach how to read them.</p>
+
+        <table class="table-light compact-table">
+          <thead>
+            <tr>
+              <th>Topic</th>
+              <th>Papers</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>CNNs</td><td>AlexNet, VGG, ResNet.</td></tr>
+            <tr><td>Attention</td><td><a href="https://arxiv.org/abs/1706.03762">Attention Is All You Need</a>.</td></tr>
+            <tr><td>Transformers</td><td>BERT, GPT series, T5.</td></tr>
+            <tr><td>Vision-language</td><td>CLIP.</td></tr>
+            <tr><td>Self-supervised vision</td><td>SimCLR, MoCo, DINO.</td></tr>
+            <tr><td>Diffusion</td><td>DDPM, Latent Diffusion.</td></tr>
+            <tr><td>Alignment</td><td>InstructGPT.</td></tr>
+            <tr><td>Retrieval</td><td>DPR, RAG.</td></tr>
+            <tr><td>Scaling</td><td>Scaling Laws for Neural Language Models.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="md-col-4 px2">
+        <blockquote class="h3 bold bl ml0 pl2 mt3 red">
+          <p>Read papers to find the experiment, not just the claim.</p>
+        </blockquote>
+      </div>
+    </div>
+
+    <!-- Reading order -->
+    <div class="px2">
+      <h2 class="h2 mb0" id="reading-order">Reading order</h2>
+    </div>
+
+    <div class="flex flex-wrap">
+      <div class="md-col-4 px2">
+        <h3 class="h4">Practical engineer</h3>
+        <ol>
+          <li><em>Dive into Deep Learning</em></li>
+          <li><em>Deep Learning with Python</em></li>
+          <li><em>Designing Machine Learning Systems</em></li>
+          <li><em>Natural Language Processing with Transformers</em></li>
+          <li>Selected papers</li>
+        </ol>
+      </div>
+
+      <div class="md-col-4 px2">
+        <h3 class="h4">Research foundation</h3>
+        <ol>
+          <li><em>Mathematics for Machine Learning</em></li>
+          <li><em>An Introduction to Statistical Learning</em></li>
+          <li><em>Deep Learning</em></li>
+          <li><em>Understanding Deep Learning</em></li>
+          <li>Papers</li>
+        </ol>
+      </div>
+
+      <div class="md-col-4 px2">
+        <h3 class="h4">Vision, embeddings, clustering</h3>
+        <ol>
+          <li><em>Dive into Deep Learning</em></li>
+          <li><em>Understanding Deep Learning</em></li>
+          <li><em>Computer Vision: Algorithms and Applications</em></li>
+          <li>CLIP, DINO, SimCLR, MoCo</li>
+          <li>Embedding search and clustering project</li>
+        </ol>
+      </div>
+    </div>
+
+    <!-- Projects -->
+    <div class="px2">
+      <h2 class="h2 mb0" id="projects">Projects</h2>
+    </div>
+
+    <div class="flex flex-wrap">
+      <div class="md-col-8 px2">
+        <p>Projects are where the curriculum becomes real. Build these in order, keeping the scope small enough to finish and serious enough to reveal failure modes.</p>
+
+        <ul class="two-column-list">
+          <li>Build a neural network from scratch.</li>
+          <li>Train a CNN.</li>
+          <li>Train a small transformer.</li>
+          <li>Build an image embedding search engine.</li>
+          <li>Fine-tune a language model.</li>
+          <li>Build a retrieval-augmented generation system.</li>
+          <li>Train a small diffusion model.</li>
+          <li>Build an ML evaluation harness.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Tools -->
+    <div class="px2">
+      <h2 class="h2 mb0" id="tools">Tools</h2>
+    </div>
+
+    <div class="flex flex-wrap">
+      <div class="md-col-8 px2">
+        <p>Tools should support the curriculum, not replace it. Learn the underlying ideas first, then use the tools to move faster and reproduce work.</p>
+
+        <ul class="two-column-list">
+          <li><a href="https://pytorch.org/">PyTorch</a></li>
+          <li><a href="https://jax.readthedocs.io/">JAX</a></li>
+          <li><a href="https://huggingface.co/">Hugging Face</a></li>
+          <li><a href="https://wandb.ai/">Weights &amp; Biases</a> or <a href="https://mlflow.org/">MLflow</a></li>
+          <li><a href="https://www.docker.com/">Docker</a></li>
+          <li><a href="https://docs.nvidia.com/cuda/">CUDA basics</a></li>
+          <li><a href="https://faiss.ai/">FAISS</a></li>
+          <li><a href="https://github.com/pgvector/pgvector">pgvector</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Book list -->
+    <div class="px2">
+      <h2 class="h2 mb0" id="book-list">Opinionated book list</h2>
+    </div>
+
+    <div class="px2 py2">
+      <table class="table-light">
+        <thead>
+          <tr>
+            <th>Section</th>
+            <th>Main book or resource</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Programming</td><td><em>Dive into Deep Learning</em></td></tr>
+          <tr><td>Math</td><td><em>Mathematics for Machine Learning</em></td></tr>
+          <tr><td>Classical ML</td><td><em>An Introduction to Statistical Learning</em></td></tr>
+          <tr><td>Neural Networks</td><td><em>Understanding Deep Learning</em></td></tr>
+          <tr><td>Optimization</td><td><em>Deep Learning</em></td></tr>
+          <tr><td>Computer Vision</td><td><em>Computer Vision: Algorithms and Applications</em></td></tr>
+          <tr><td>NLP</td><td><em>Speech and Language Processing</em></td></tr>
+          <tr><td>Transformers</td><td><em>Natural Language Processing with Transformers</em></td></tr>
+          <tr><td>Generative AI</td><td><em>Deep Learning with Python, 3rd ed.</em></td></tr>
+          <tr><td>ML Systems</td><td><em>Designing Machine Learning Systems</em></td></tr>
+          <tr><td>Evaluation</td><td><em>Reliable Machine Learning</em></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- FAQ -->
+    <div class="px2">
+      <div class="max-width-3">
+        <h2 class="h2" id="faq">Frequently asked questions</h2>
+
+        <h4 class="h4">Who is the target audience for this guide?</h4>
+        <p>This guide is for competent programmers, engineers, analysts, researchers, and product-minded builders who want deep learning foundations without enrolling in a degree program. It assumes you can already write code and are willing to build projects.</p>
+
+        <h4 class="h4">Do I need a PhD?</h4>
+        <p>No. You need mathematical maturity, implementation practice, and a habit of careful evaluation. A PhD can be useful for research careers, but it is not required to build strong deep learning systems.</p>
+
+        <h4 class="h4">Should I learn PyTorch or TensorFlow?</h4>
+        <p>Learn PyTorch first unless your work environment strongly requires TensorFlow. The more important skill is understanding tensor programs, autograd, training loops, and model debugging.</p>
+
+        <h4 class="h4">Should I read papers or books first?</h4>
+        <p>Start with books for foundations, then read papers once you can ask concrete questions about objectives, architectures, data, experiments, and failure modes.</p>
+
+        <h4 class="h4">How much math do I need?</h4>
+        <p>Enough to reason about vectors, matrices, gradients, probability distributions, likelihoods, entropy, and optimization. You do not need to master every proof before building, but you should be able to work through the math behind the models you use.</p>
+
+        <h4 class="h4">How do I know I actually understand?</h4>
+        <p>You can reimplement small versions, predict what will happen when you change the data or loss, explain failures without hand-waving, build baselines, and design evaluations that would catch shortcuts and leakage.</p>
+
+        <h4 class="h4">Who made this?</h4>
+        <p>This is an independent deep learning curriculum draft, inspired by the compact public format of TeachYourselfCS. It is not affiliated with TeachYourselfCS or Bradfield.</p>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
