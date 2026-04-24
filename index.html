@@ -604,15 +604,17 @@
             </tr>
           </thead>
           <tbody>
-            <tr><td>CNNs</td><td>AlexNet, VGG, ResNet.</td></tr>
+            <tr><td>Optimization</td><td><a href="https://arxiv.org/abs/1412.6980">Adam</a>, <a href="https://arxiv.org/abs/1502.03167">Batch Normalization</a>.</td></tr>
+            <tr><td>CNNs</td><td><a href="https://papers.nips.cc/paper_files/paper/2012/hash/c399862d3b9d6b76c8436e924a68c45b-Abstract.html">AlexNet</a>, <a href="https://arxiv.org/abs/1409.1556">VGG</a>, <a href="https://arxiv.org/abs/1512.03385">ResNet</a>.</td></tr>
+            <tr><td>Vision transformers</td><td><a href="https://arxiv.org/abs/2010.11929">Vision Transformer</a>.</td></tr>
             <tr><td>Attention</td><td><a href="https://arxiv.org/abs/1706.03762">Attention Is All You Need</a>.</td></tr>
-            <tr><td>Transformers</td><td>BERT, GPT series, T5.</td></tr>
-            <tr><td>Vision-language</td><td>CLIP.</td></tr>
-            <tr><td>Self-supervised vision</td><td>SimCLR, MoCo, DINO.</td></tr>
-            <tr><td>Diffusion</td><td>DDPM, Latent Diffusion.</td></tr>
-            <tr><td>Alignment</td><td>InstructGPT.</td></tr>
-            <tr><td>Retrieval</td><td>DPR, RAG.</td></tr>
-            <tr><td>Scaling</td><td>Scaling Laws for Neural Language Models.</td></tr>
+            <tr><td>Language pretraining</td><td><a href="https://arxiv.org/abs/1301.3781">word2vec</a>, <a href="https://arxiv.org/abs/1810.04805">BERT</a>, <a href="https://arxiv.org/abs/1910.10683">T5</a>.</td></tr>
+            <tr><td>GPT and scaling</td><td><a href="https://cdn.openai.com/better-language-models/language_models_are_unsupervised_multitask_learners.pdf">GPT-2</a>, <a href="https://arxiv.org/abs/2005.14165">GPT-3</a>, <a href="https://arxiv.org/abs/2001.08361">Scaling Laws</a>, <a href="https://arxiv.org/abs/2203.15556">Chinchilla</a>.</td></tr>
+            <tr><td>Self-supervised vision</td><td><a href="https://arxiv.org/abs/2002.05709">SimCLR</a>, <a href="https://arxiv.org/abs/1911.05722">MoCo</a>, <a href="https://arxiv.org/abs/2104.14294">DINO</a>.</td></tr>
+            <tr><td>Vision-language</td><td><a href="https://arxiv.org/abs/2103.00020">CLIP</a>.</td></tr>
+            <tr><td>Generative models</td><td><a href="https://arxiv.org/abs/1312.6114">VAE</a>, <a href="https://arxiv.org/abs/1406.2661">GAN</a>, <a href="https://arxiv.org/abs/2006.11239">DDPM</a>, <a href="https://arxiv.org/abs/2112.10752">Latent Diffusion</a>.</td></tr>
+            <tr><td>Retrieval</td><td><a href="https://arxiv.org/abs/2004.04906">DPR</a>, <a href="https://arxiv.org/abs/2005.11401">RAG</a>.</td></tr>
+            <tr><td>Alignment</td><td><a href="https://arxiv.org/abs/2203.02155">InstructGPT</a>.</td></tr>
           </tbody>
         </table>
       </div>
@@ -671,18 +673,22 @@
 
     <div class="flex flex-wrap">
       <div class="md-col-8 px2">
-        <p>Projects are where the curriculum becomes real. Build these in order, keeping the scope small enough to finish and serious enough to reveal failure modes.</p>
+        <p>Projects are where the curriculum becomes real. Build these in order of relevance: first the projects that expose the machinery, then the ones that make modern deep learning useful in products.</p>
 
-        <ul class="two-column-list">
-          <li>Build a neural network from scratch.</li>
-          <li>Train a CNN.</li>
-          <li>Train a small transformer.</li>
-          <li>Build an image embedding search engine.</li>
-          <li>Fine-tune a language model.</li>
-          <li>Build a retrieval-augmented generation system.</li>
-          <li>Train a small diffusion model.</li>
-          <li>Build an ML evaluation harness.</li>
-        </ul>
+        <ol class="project-list">
+          <li><strong>Autograd and neural network from scratch.</strong><span>Implement tensors, backpropagation, an MLP, gradient checks, and a tiny training loop.</span></li>
+          <li><strong>Reproducible PyTorch training loop.</strong><span>Train on a small real dataset with configs, seeds, metrics, checkpoints, and experiment notes.</span></li>
+          <li><strong>Baseline and evaluation harness.</strong><span>Build train/validation/test splits, classical baselines, leakage checks, calibration, and error slices.</span></li>
+          <li><strong>CNN with augmentation and regularization.</strong><span>Train a compact vision model and compare augmentation, weight decay, normalization, and schedules.</span></li>
+          <li><strong>Optimizer and normalization lab.</strong><span>Compare SGD, momentum, Adam, batch normalization, initialization, and learning-rate schedules.</span></li>
+          <li><strong>Image embedding search engine.</strong><span>Use CLIP or DINO embeddings with FAISS, nearest-neighbor search, clustering, and retrieval metrics.</span></li>
+          <li><strong>Transformer fine-tuning project.</strong><span>Fine-tune a small language model for classification or extraction and inspect failure cases.</span></li>
+          <li><strong>Retrieval-augmented generation system.</strong><span>Build chunking, embeddings, retrieval, answer generation, citation display, and retrieval evaluation.</span></li>
+          <li><strong>Visual similarity and clustering pipeline.</strong><span>Group related images or products, handle hard negatives, review clusters, and measure drift.</span></li>
+          <li><strong>Tiny diffusion model.</strong><span>Train a small denoising diffusion model so the objective, noise schedule, and sampling loop are concrete.</span></li>
+          <li><strong>Model serving and monitoring service.</strong><span>Serve one model behind an API with validation, logging, latency checks, and data-drift alerts.</span></li>
+          <li><strong>Paper reproduction.</strong><span>Reproduce a small version of one paper, write down the exact deviations, and compare expected versus observed results.</span></li>
+        </ol>
       </div>
     </div>
 
