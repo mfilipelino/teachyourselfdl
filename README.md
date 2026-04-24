@@ -1,6 +1,6 @@
 # Teach Yourself Deep Learning
 
-A static GitHub Pages site for an opinionated deep learning curriculum, modeled after the compact TeachYourselfCS layout.
+A static GitHub Pages site for an opinionated deep learning curriculum, modeled after the compact [TeachYourselfCS](https://teachyourselfcs.com/) layout.
 
 ## Local preview
 

@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Teach Yourself Deep Learning</title>
   <meta name="description" content="All the resources you need to give yourself a world-class deep learning education.">
+  <meta name="author" content="Marcos Lino">
   <meta property="og:title" content="Teach Yourself Deep Learning">
   <meta property="og:description" content="A compact, opinionated curriculum for learning deep learning from foundations to systems.">
   <meta property="og:type" content="website">
@@ -14,7 +15,7 @@
 <body>
   <!--
     Layout note:
-    This page intentionally follows the compact TeachYourselfCS shape:
+    This page intentionally follows the compact self-study curriculum shape:
     short introduction, TL;DR table, explanatory essays, subject guides,
     and a small FAQ. The CSS re-creates the utility classes locally so the
     GitHub Pages build is static and dependency-free.
@@ -35,7 +36,9 @@
           <li>What should you build so the knowledge becomes operational?</li>
         </ul>
 
-        <p>This guide is an attempt to answer those questions in the same spirit as TeachYourselfCS: one strong path, a small number of excellent resources, and short reasons for each recommendation.</p>
+        <p>This guide is an attempt to answer those questions in the same spirit as <a href="https://teachyourselfcs.com/">Teach Yourself Computer Science</a>: one strong path, a small number of excellent resources, and short reasons for each recommendation.</p>
+
+        <p class="source-note">Inspired by <a href="https://teachyourselfcs.com/">TeachYourselfCS</a>. Maintained by <strong>Marcos Lino</strong>. Contact: <a href="mailto:mfilipelino@gmail.com">mfilipelino@gmail.com</a> / <a href="https://www.linkedin.com/in/mfilipelino/">LinkedIn</a>.</p>
 
         <h2 class="h2">Core philosophy</h2>
         <p>Deep learning is not mainly about memorizing architectures. It is about understanding what is being optimized, what a model can represent, which data distribution it sees, what inductive bias the architecture imposes, what failure modes the training loop creates, and how to evaluate whether the model actually learned.</p>
@@ -133,6 +136,68 @@
       </table>
     </div>
 
+    <!-- Local book-cover assets -->
+    <div class="px2">
+      <h2 class="h2 mb0" id="books">The core books</h2>
+    </div>
+
+    <div class="px2 py2">
+      <figure class="figure-card whiteboard-figure">
+        <img src="assets/reading-structure-whiteboard.png" alt="Whiteboard diagram of the recommended Teach Yourself Deep Learning reading sequence from foundations to papers.">
+        <figcaption>The recommended structure: foundations, core neural-network mechanics, specialization branches, systems, evaluation, and papers.</figcaption>
+      </figure>
+    </div>
+
+    <div class="px2 py2">
+      <div class="cover-shelf" aria-label="Core deep learning book covers">
+        <a class="cover-tile" href="https://d2l.ai/">
+          <img src="assets/covers/dive-into-deep-learning.jpg" alt="Dive into Deep Learning book cover" loading="lazy">
+          <span>Dive into Deep Learning</span>
+        </a>
+        <a class="cover-tile" href="https://mml-book.github.io/">
+          <img src="assets/covers/mathematics-for-machine-learning.jpg" alt="Mathematics for Machine Learning book cover" loading="lazy">
+          <span>Mathematics for Machine Learning</span>
+        </a>
+        <a class="cover-tile" href="https://www.statlearning.com/">
+          <img src="assets/covers/introduction-to-statistical-learning.jpg" alt="An Introduction to Statistical Learning book cover" loading="lazy">
+          <span>An Introduction to Statistical Learning</span>
+        </a>
+        <a class="cover-tile" href="https://udlbook.github.io/udlbook/">
+          <img src="assets/covers/understanding-deep-learning.jpg" alt="Understanding Deep Learning book cover" loading="lazy">
+          <span>Understanding Deep Learning</span>
+        </a>
+        <a class="cover-tile" href="https://www.deeplearningbook.org/">
+          <img src="assets/covers/deep-learning-goodfellow.jpg" alt="Deep Learning book cover" loading="lazy">
+          <span>Deep Learning</span>
+        </a>
+        <a class="cover-tile" href="https://szeliski.org/Book/">
+          <img src="assets/covers/computer-vision-szeliski.jpg" alt="Computer Vision: Algorithms and Applications book cover" loading="lazy">
+          <span>Computer Vision</span>
+        </a>
+        <a class="cover-tile" href="https://web.stanford.edu/~jurafsky/slp3/">
+          <img src="assets/covers/speech-language-processing.jpg" alt="Speech and Language Processing book cover" loading="lazy">
+          <span>Speech and Language Processing</span>
+        </a>
+        <a class="cover-tile" href="https://www.oreilly.com/library/view/natural-language-processing/9781098103231/">
+          <img src="assets/covers/nlp-transformers.jpg" alt="Natural Language Processing with Transformers book cover" loading="lazy">
+          <span>NLP with Transformers</span>
+        </a>
+        <a class="cover-tile" href="https://www.manning.com/books/deep-learning-with-python-third-edition">
+          <img src="assets/covers/deep-learning-with-python.jpg" alt="Deep Learning with Python, Third Edition book cover" loading="lazy">
+          <span>Deep Learning with Python</span>
+        </a>
+        <a class="cover-tile" href="https://www.oreilly.com/library/view/designing-machine-learning/9781098107956/">
+          <img src="assets/covers/designing-machine-learning-systems.jpg" alt="Designing Machine Learning Systems book cover" loading="lazy">
+          <span>Designing ML Systems</span>
+        </a>
+        <a class="cover-tile" href="https://www.oreilly.com/library/view/reliable-machine-learning/9781098106218/">
+          <img src="assets/covers/reliable-machine-learning.jpg" alt="Reliable Machine Learning book cover" loading="lazy">
+          <span>Reliable Machine Learning</span>
+        </a>
+      </div>
+      <p class="source-note">Book covers are stored locally in this repo and used as visual identifiers for the recommended resources.</p>
+    </div>
+
     <!-- Short path -->
     <div class="px2">
       <h2 class="h2 mb0" id="too-much">Still too much?</h2>
@@ -161,6 +226,7 @@
           <img src="assets/curriculum-map.svg" alt="A compact map linking representation, optimization, data, architecture, systems, and evaluation.">
           <figcaption>Problem-first deep learning: learn the machinery that makes architectures work.</figcaption>
         </figure>
+        <p class="source-note">The format and editorial restraint are deliberately modeled after <a href="https://teachyourselfcs.com/">TeachYourselfCS</a>.</p>
       </div>
 
       <div class="md-col-8 px2">
@@ -187,11 +253,11 @@
       </div>
 
       <div class="md-col-4 px2">
-        <aside class="resource-card">
-          <p class="resource-label">First book</p>
-          <h4>Dive into Deep Learning</h4>
-          <p>Code, math, and discussion in one place.</p>
-        </aside>
+        <a class="book-card" href="https://d2l.ai/">
+          <img src="assets/covers/dive-into-deep-learning.jpg" alt="Dive into Deep Learning book cover" loading="lazy">
+          <span>First book</span>
+          <strong>Dive into Deep Learning</strong>
+        </a>
       </div>
     </div>
 
@@ -224,6 +290,11 @@
       </div>
 
       <div class="md-col-4 px2">
+        <a class="book-card" href="https://mml-book.github.io/">
+          <img src="assets/covers/mathematics-for-machine-learning.jpg" alt="Mathematics for Machine Learning book cover" loading="lazy">
+          <span>Math spine</span>
+          <strong>Mathematics for Machine Learning</strong>
+        </a>
         <blockquote class="h3 bold bl ml0 pl2 mt3 red">
           <p>If you cannot reason about gradients, you are debugging by folklore.</p>
         </blockquote>
@@ -245,11 +316,11 @@
       </div>
 
       <div class="md-col-4 px2">
-        <aside class="resource-card secondary">
-          <p class="resource-label">Baseline discipline</p>
-          <h4>ISL first, ESL later</h4>
-          <p>Learn validation and regularization before chasing architecture.</p>
-        </aside>
+        <a class="book-card" href="https://www.statlearning.com/">
+          <img src="assets/covers/introduction-to-statistical-learning.jpg" alt="An Introduction to Statistical Learning book cover" loading="lazy">
+          <span>Baseline discipline</span>
+          <strong>ISL first, ESL later</strong>
+        </a>
       </div>
     </div>
 
@@ -268,6 +339,11 @@
       </div>
 
       <div class="md-col-4 px2">
+        <a class="book-card" href="https://udlbook.github.io/udlbook/">
+          <img src="assets/covers/understanding-deep-learning.jpg" alt="Understanding Deep Learning book cover" loading="lazy">
+          <span>Neural networks</span>
+          <strong>Understanding Deep Learning</strong>
+        </a>
         <aside class="question-card">
           <h4>Key questions</h4>
           <ul>
@@ -294,11 +370,11 @@
       </div>
 
       <div class="md-col-4 px2">
-        <aside class="resource-card">
-          <p class="resource-label">Classic reference</p>
-          <h4>Deep Learning</h4>
-          <p>Use it as a reference, not as your first exposure.</p>
-        </aside>
+        <a class="book-card" href="https://www.deeplearningbook.org/">
+          <img src="assets/covers/deep-learning-goodfellow.jpg" alt="Deep Learning book cover" loading="lazy">
+          <span>Classic reference</span>
+          <strong>Deep Learning</strong>
+        </a>
       </div>
     </div>
 
@@ -317,6 +393,11 @@
       </div>
 
       <div class="md-col-4 px2">
+        <a class="book-card" href="https://szeliski.org/Book/">
+          <img src="assets/covers/computer-vision-szeliski.jpg" alt="Computer Vision: Algorithms and Applications book cover" loading="lazy">
+          <span>Vision reference</span>
+          <strong>Computer Vision</strong>
+        </a>
         <div class="tag-list" aria-label="Vision topics">
           <span>embeddings</span>
           <span>metric learning</span>
@@ -341,6 +422,16 @@
       </div>
 
       <div class="md-col-4 px2">
+        <div class="book-pair">
+          <a class="mini-book-card" href="https://web.stanford.edu/~jurafsky/slp3/">
+            <img src="assets/covers/speech-language-processing.jpg" alt="Speech and Language Processing book cover" loading="lazy">
+            <span>SLP</span>
+          </a>
+          <a class="mini-book-card" href="https://www.oreilly.com/library/view/natural-language-processing/9781098103231/">
+            <img src="assets/covers/nlp-transformers.jpg" alt="Natural Language Processing with Transformers book cover" loading="lazy">
+            <span>Transformers</span>
+          </a>
+        </div>
         <aside class="question-card">
           <h4>Core topics</h4>
           <ul>
@@ -383,6 +474,11 @@
       </div>
 
       <div class="md-col-4 px2">
+        <a class="book-card" href="https://www.manning.com/books/deep-learning-with-python-third-edition">
+          <img src="assets/covers/deep-learning-with-python.jpg" alt="Deep Learning with Python, Third Edition book cover" loading="lazy">
+          <span>Generative practice</span>
+          <strong>Deep Learning with Python</strong>
+        </a>
         <blockquote class="h3 bold bl ml0 pl2 mt3 red">
           <p>Generative models are objectives before they are demos.</p>
         </blockquote>
@@ -404,8 +500,17 @@
       </div>
 
       <div class="md-col-4 px2">
-        <aside class="resource-card secondary">
-          <p class="resource-label">First-class topic</p>
+        <div class="book-pair">
+          <a class="mini-book-card" href="https://udlbook.github.io/udlbook/">
+            <img src="assets/covers/understanding-deep-learning.jpg" alt="Understanding Deep Learning book cover" loading="lazy">
+            <span>theory</span>
+          </a>
+          <a class="mini-book-card" href="https://d2l.ai/">
+            <img src="assets/covers/dive-into-deep-learning.jpg" alt="Dive into Deep Learning book cover" loading="lazy">
+            <span>code</span>
+          </a>
+        </div>
+        <aside class="question-card compact">
           <h4>Embeddings</h4>
           <p>Evaluate with retrieval quality, cluster purity, drift, and operational cost.</p>
         </aside>
@@ -425,6 +530,11 @@
       </div>
 
       <div class="md-col-4 px2">
+        <a class="book-card" href="https://www.oreilly.com/library/view/designing-machine-learning/9781098107956/">
+          <img src="assets/covers/designing-machine-learning-systems.jpg" alt="Designing Machine Learning Systems book cover" loading="lazy">
+          <span>Systems</span>
+          <strong>Designing ML Systems</strong>
+        </a>
         <div class="tag-list systems" aria-label="Systems topics">
           <span>data validation</span>
           <span>tracking</span>
@@ -451,6 +561,11 @@
       </div>
 
       <div class="md-col-4 px2">
+        <a class="book-card" href="https://www.oreilly.com/library/view/reliable-machine-learning/9781098106218/">
+          <img src="assets/covers/reliable-machine-learning.jpg" alt="Reliable Machine Learning book cover" loading="lazy">
+          <span>Evaluation</span>
+          <strong>Reliable Machine Learning</strong>
+        </a>
         <aside class="question-card">
           <h4>Evaluation checklist</h4>
           <ul>
@@ -638,7 +753,10 @@
         <p>You can reimplement small versions, predict what will happen when you change the data or loss, explain failures without hand-waving, build baselines, and design evaluations that would catch shortcuts and leakage.</p>
 
         <h4 class="h4">Who made this?</h4>
-        <p>This is an independent deep learning curriculum draft, inspired by the compact public format of TeachYourselfCS. It is not affiliated with TeachYourselfCS or Bradfield.</p>
+        <p>This is an independent deep learning curriculum by <strong>Marcos Lino</strong>, inspired by the compact public format of <a href="https://teachyourselfcs.com/">TeachYourselfCS</a>. It is not affiliated with <a href="https://teachyourselfcs.com/">TeachYourselfCS</a> or Bradfield.</p>
+
+        <h4 class="h4">Contact</h4>
+        <p>Email: <a href="mailto:mfilipelino@gmail.com">mfilipelino@gmail.com</a>. LinkedIn: <a href="https://www.linkedin.com/in/mfilipelino/">linkedin.com/in/mfilipelino</a>.</p>
       </div>
     </div>
   </main>

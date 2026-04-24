@@ -236,38 +236,95 @@ td {
   border: 1px solid rgba(36, 51, 64, 0.18);
 }
 
+.whiteboard-figure {
+  max-width: 64rem;
+}
+
+.whiteboard-figure img {
+  background: #f8f8f5;
+}
+
 .figure-card figcaption {
   margin-top: 0.6rem;
   color: #4f5f6f;
   font-size: 0.9rem;
 }
 
-.resource-card,
-.question-card {
+.source-note {
+  color: #4f5f6f;
+  font-size: 0.95rem;
+}
+
+.cover-shelf {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(8.5rem, 1fr));
+  gap: 1rem;
+  align-items: stretch;
   margin-top: 1rem;
-  padding: 1rem;
-  border: 3px solid #15202b;
+}
+
+.cover-tile,
+.book-card,
+.mini-book-card {
+  color: #15202b;
+  text-decoration: none;
+}
+
+.cover-tile:hover,
+.cover-tile:focus,
+.book-card:hover,
+.book-card:focus,
+.mini-book-card:hover,
+.mini-book-card:focus {
+  color: #15202b;
+  text-decoration: none;
+}
+
+.cover-tile {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  padding: 0.75rem;
+  border: 1px solid rgba(36, 51, 64, 0.25);
   background: #fff;
 }
 
-.resource-card {
-  min-height: 18rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  background:
-    linear-gradient(135deg, rgba(116, 18, 15, 0.1), rgba(51, 119, 187, 0.08)),
-    #fff;
+.cover-tile img,
+.book-card img,
+.mini-book-card img {
+  display: block;
+  width: 100%;
+  object-fit: contain;
+  background: #f7f7f7;
 }
 
-.resource-card.secondary {
-  background:
-    linear-gradient(135deg, rgba(51, 119, 187, 0.1), rgba(21, 32, 43, 0.06)),
-    #fff;
+.cover-tile img {
+  height: 13rem;
+  margin-bottom: 0.75rem;
 }
 
-.resource-label {
-  margin: 0 0 0.35rem;
+.cover-tile span {
+  display: block;
+  margin-top: auto;
+  font-size: 0.9rem;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.book-card {
+  display: block;
+  margin-top: 1rem;
+}
+
+.book-card img {
+  max-height: 18rem;
+  border: 1px solid rgba(36, 51, 64, 0.25);
+}
+
+.book-card span,
+.mini-book-card span {
+  display: block;
+  margin-top: 0.65rem;
   color: #74120f;
   font-size: 0.8rem;
   font-weight: 700;
@@ -275,16 +332,45 @@ td {
   text-transform: uppercase;
 }
 
-.resource-card h4,
+.book-card strong {
+  display: block;
+  margin-top: 0.15rem;
+  color: #15202b;
+  font-size: 1.1rem;
+  line-height: 1.2;
+}
+
+.book-pair {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.mini-book-card img {
+  height: 12rem;
+  border: 1px solid rgba(36, 51, 64, 0.25);
+}
+
+.question-card {
+  margin-top: 1rem;
+  padding: 1rem;
+  border: 3px solid #15202b;
+  background: #fff;
+}
+
 .question-card h4 {
   margin: 0;
   font-size: 1.4rem;
   line-height: 1.15;
 }
 
-.resource-card p:last-child,
 .question-card p:last-child {
   margin-bottom: 0;
+}
+
+.question-card.compact p {
+  margin-top: 0.5rem;
 }
 
 .question-card ul {
